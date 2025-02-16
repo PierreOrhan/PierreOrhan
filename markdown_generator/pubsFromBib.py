@@ -3,7 +3,9 @@
 
 # # Publications markdown generator for academicpages
 # 
-# Takes a set of bibtex of publications and converts them for use with [academicpages.github.io](academicpages.github.io). This is an interactive Jupyter notebook ([see more info here](http://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html)). 
+# Takes a set of bibtex of publications and converts them for use with [academicpages.github.io](academicpages.github.io).
+# This is an interactive Jupyter notebook
+# ([see more info here](http://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html)).
 # 
 # The core python code is also in `pubsFromBibs.py`. 
 # Run either from the `markdown_generator` folder after replacing updating the publist dictionary with:
@@ -26,21 +28,28 @@ import re
 
 #todo: incorporate different collection types rather than a catch all publications, requires other changes to template
 publist = {
-    "proceeding": {
-        "file" : "proceedings.bib",
-        "venuekey": "booktitle",
-        "venue-pretext": "In the proceedings of ",
-        "collection" : {"name":"publications",
-                        "permalink":"/publication/"}
-        
-    },
+    # "proceeding": {
+    #     "file" : "proceedings.bib",
+    #     "venuekey": "booktitle",
+    #     "venue-pretext": "In the proceedings of ",
+    #     "collection" : {"name":"publications",
+    #                     "permalink":"/publication/"}
+    #
+    # },
     "journal":{
-        "file": "pubs.bib",
+        "file": "publications.bib",
         "venuekey" : "journal",
         "venue-pretext" : "",
         "collection" : {"name":"publications",
                         "permalink":"/publication/"}
-    } 
+    },
+    "proceeding": {
+        "file": "publications.bib",
+        "venuekey": "volume",
+        "venue-pretext": "In the proceedings of",
+        "collection": {"name": "publications",
+                       "permalink": "/publication/"}
+    }
 }
 
 html_escape_table = {
