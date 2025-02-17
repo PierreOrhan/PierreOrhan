@@ -46,7 +46,14 @@ publist = {
     "proceeding": {
         "file": "publications.bib",
         "venuekey": "volume",
-        "venue-pretext": "In the proceedings of",
+        "venue-pretext": "",
+        "collection": {"name": "publications",
+                       "permalink": "/publication/"}
+    },
+    "preprint": {
+        "file": "publications.bib",
+        "venuekey": "publisher",
+        "venue-pretext": "",
         "collection": {"name": "publications",
                        "permalink": "/publication/"}
     }
@@ -144,14 +151,14 @@ for pubsource in publist:
                     md += "\npaperurl: '" + b["url"] + "'"
                     url = True
 
-            md += "\ncitation: '" + html_escape(citation) + "'"
+            # md += "\ncitation: '" + html_escape(citation) + "'"
 
             md += "\n---"
 
             
-            ## Markdown description for individual page
-            if note:
-                md += "\n" + html_escape(b["note"]) + "\n"
+            # ## Markdown description for individual page
+            # if note:
+            #     md += "\n" + html_escape(b["note"]) + "\n"
 
             if url:
                 md += "\n[Access paper here](" + b["url"] + "){:target=\"_blank\"}\n" 
