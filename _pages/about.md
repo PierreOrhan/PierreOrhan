@@ -35,6 +35,12 @@ Research interests
 
 ## Predicting and recording brain activities.
 
+<div style="display: flex; align-items: center;">
+    <img src="/images/ModelToBrain.png" alt="Description of image" style="margin-right: 20px; width: 400px; height: auto;">
+    <div>
+        <p> Brain activity is predicted from model activity in response to the same stimulis.</p>
+    </div>
+</div>
 
 Engineering interests
 ======
