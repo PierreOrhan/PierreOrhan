@@ -137,11 +137,11 @@ for pubsource in publist:
 
             md += """\npermalink: """ + publist[pubsource]["collection"]["permalink"]  + html_filename
             
-            note = False
-            if "note" in b.keys():
-                if len(str(b["note"])) > 5:
-                    md += "\nexcerpt: '" + html_escape(b["note"]) + "'"
-                    note = True
+            # note = False
+            # if "note" in b.keys():
+            #     if len(str(b["note"])) > 5:
+            #         md += "\nexcerpt: '" + html_escape(b["note"]) + "'"
+            #         note = True
 
             md += "\ndate: " + str(pub_date)
 
@@ -161,8 +161,8 @@ for pubsource in publist:
 
             
             # ## Markdown description for individual page
-            if note:
-                md += "\n" + "\n"
+            # if note:
+            #     md += "\n" + "\n"
 
             if url:
                 md += "\n[Access paper here](" + b["url"] + "){:target=\"_blank\"}\n" 
