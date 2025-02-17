@@ -1,6 +1,7 @@
 ---
 title: "Local origin of excitatory–inhibitory tuning equivalence in a cortical network"
 collection: publications
+category: manuscripts
 permalink: /publication/2024-04-01-Local-origin-of-excitatoryinhibitory-tuning-equivalence-in-a-cortical-network
 excerpt: 'Publisher: Nature Publishing Group'
 date: 2024-04-01

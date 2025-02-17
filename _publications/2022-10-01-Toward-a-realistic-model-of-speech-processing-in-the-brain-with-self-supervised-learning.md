@@ -1,6 +1,7 @@
 ---
 title: "Toward a realistic model of speech processing in the brain with self-supervised learning"
 collection: publications
+category: manuscripts
 permalink: /publication/2022-10-01-Toward-a-realistic-model-of-speech-processing-in-the-brain-with-self-supervised-learning
 date: 2022-10-01
 venue: 'In the proceedings ofAdvances in Neural Information Processing Systems'
