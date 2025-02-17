@@ -26,20 +26,15 @@ import html
 import os
 import re
 
+from sympy.testing.pytest import raises
+
 #todo: incorporate different collection types rather than a catch all publications, requires other changes to template
 publist = {
-    # "proceeding": {
-    #     "file" : "proceedings.bib",
-    #     "venuekey": "booktitle",
-    #     "venue-pretext": "In the proceedings of ",
-    #     "collection" : {"name":"publications",
-    #                     "permalink":"/publication/"}
-    #
-    # },
     "journal":{
         "file": "publications.bib",
         "venuekey" : "journal",
         "venue-pretext" : "",
+        "category": "manuscripts",
         "collection" : {"name":"publications",
                         "permalink":"/publication/"}
     },
@@ -47,6 +42,7 @@ publist = {
         "file": "publications.bib",
         "venuekey": "volume",
         "venue-pretext": "",
+        "category": "conferences",
         "collection": {"name": "publications",
                        "permalink": "/publication/"}
     },
@@ -54,6 +50,7 @@ publist = {
         "file": "publications.bib",
         "venuekey": "publisher",
         "venue-pretext": "",
+        "category": "preprints",
         "collection": {"name": "publications",
                        "permalink": "/publication/"}
     }
@@ -82,8 +79,13 @@ for pubsource in publist:
         pub_day = "01"
         
         b = bibdata.entries[bib_id].fields
-        
         try:
+            if "journal" in b.keys():
+                try:
+                    assert publist[pubsource]["venuekey"]=="journal"
+                except:
+                    raise KeyError("journal")
+
             pub_year = f'{b["year"]}'
 
             #todo: this hack for month and day needs some cleanup
@@ -141,7 +143,9 @@ for pubsource in publist:
                     md += "\nexcerpt: '" + html_escape(b["note"]) + "'"
                     note = True
 
-            md += "\ndate: " + str(pub_date) 
+            md += "\ndate: " + str(pub_date)
+
+            md += "\ncategory: " + str(publist[pubsource]["category"])
 
             md += "\nvenue: '" + html_escape(venue) + "'"
             
@@ -151,7 +155,7 @@ for pubsource in publist:
                     md += "\npaperurl: '" + b["url"] + "'"
                     url = True
 
-            # md += "\ncitation: '" + html_escape(citation) + "'"
+            md += "\ncitation: '" + html_escape(citation) + "'"
 
             md += "\n---"
 
